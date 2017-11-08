@@ -11,7 +11,7 @@ DROP SEQUENCE PRO_ORDER_SEQ;            --訂單 		自增主鍵
 DROP SEQUENCE PRO_SEQ;                  --商品 		自增主鍵
 DROP SEQUENCE PRO_CLASS_SEQ;            --商品分類 	自增主鍵
 --柏炘--
-DROP SEQUENCE SEQ_DIS_MISSION_NO;		--爭議案件	自增主鍵
+DROP SEQUENCE SEQ_DIS_CASE_NO;			--爭議案件	自增主鍵
 DROP SEQUENCE SEQ_SKILL_NO;				--技能 		自增主鍵
 DROP SEQUENCE SEQ_SKILL_CATEGORY;		--技能分類	自增主鍵
 --勝驊--
