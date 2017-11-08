@@ -28,16 +28,16 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("¸ü¤J¦¨¥\");
+			System.out.println("Load Successfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("³s½u¦¨¥\");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(INSERT_STMT);
 			
 			pstmt.setString(1, skillVO.getSkill_no());
 			pstmt.setString(2, skillVO.getSkill_name());
 			pstmt.setString(3, skillVO.getSkill_cate_no());
 			pstmt.executeQuery();
-			System.out.println("·s¼W¦¨¥\");
+			System.out.println("æ–°å¢æˆåŠŸ");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -70,13 +70,13 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("¸ü¤J¦¨¥\");
+			System.out.println("Load Successfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("³s½u¦¨¥\");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(DELETE_STMT);
 			pstmt.setString(1, SKILL_NO);
 			pstmt.executeUpdate();
-			System.out.println("§R°£¦¨¥\");
+			System.out.println("åˆªé™¤æˆåŠŸ");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -111,9 +111,9 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("¸ü¤J¦¨¥\");
+			System.out.println("Load Successfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("³s½u¦¨¥\");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(UPDATE_STMT);
 
 			pstmt.setString(1, skillVO.getSkill_name());
@@ -122,7 +122,7 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 			
 			pstmt.executeUpdate();
 			
-			System.out.println("§ó·s¦¨¥\");
+			System.out.println("æ›´æ–°æˆåŠŸ");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -159,9 +159,9 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("¸ü¤J¦¨¥\");
+			System.out.println("Load Successfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("³s½u¦¨¥\");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(GET_ONE_STMT);
 			
 			pstmt.setString(1, SKILL_NO);
@@ -173,13 +173,13 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 				skillVO.setSkill_name(rs.getString(2));
 				skillVO.setSkill_cate_no(rs.getString(3));
 			}
-			System.out.println("¥DÁä¬d¸ß§¹²¦");
+			System.out.println("ä¸»éµæŸ¥è©¢å®Œç•¢");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("¥DÁä¬d¸ß¦³°İÃD");
+			System.out.println("ä¸»éµæŸ¥è©¢æœ‰å•é¡Œ");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("¥DÁä¬d¸ß¦³°İÃD");
+			System.out.println("ä¸»éµæŸ¥è©¢æœ‰å•é¡Œ");
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) {
@@ -214,9 +214,9 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("¸ü¤J¦¨¥\");
+			System.out.println("Load Successfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("³s½u¦¨¥\");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(GET_ALL_STMT);
 			rs = pstmt.executeQuery();
 			
@@ -227,7 +227,7 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 				skillVO.setSkill_cate_no(rs.getString(3));
 				listSkill.add(skillVO);
 			}
-			System.out.println("¥ş³¡¬d¸ß§¹²¦");
+			System.out.println("å…¨éƒ¨æŸ¥è©¢å®Œç•¢");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -260,12 +260,12 @@ public class SKillDAO_JDBC implements SkillDAO_interface{
 		SkillVO selectSkill = new SkillVO();
 		
 		insertSkill.setSkill_no("SKL000030");
-		insertSkill.setSkill_name("­×­¸¾÷");
+		insertSkill.setSkill_name("ä¿®é£›æ©Ÿ");
 		insertSkill.setSkill_cate_no("CATE0000003");
 		dao.insert(insertSkill);
 		
 		updateSkill.setSkill_no("SKL000030");
-		updateSkill.setSkill_name("­×¾Ô°«¾÷");
+		updateSkill.setSkill_name("ä¿®æˆ°é¬¥æ©Ÿ");
 		updateSkill.setSkill_cate_no("CATE0000003");
 		dao.update(updateSkill);
 		

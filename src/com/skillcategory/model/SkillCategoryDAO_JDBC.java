@@ -30,16 +30,15 @@ public class SkillCategoryDAO_JDBC implements SkillCategoryDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("載入成功");
+			System.out.println("Load Sucessfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(INSERT_STMT);
 			
 			pstmt.setString(1, skillCategoryVO.getSkill_cate_no());
 			pstmt.setString(2, skillCategoryVO.getSkill_cate_name());
 			
 			pstmt.executeQuery();
-			System.out.println("新增成功");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -72,13 +71,12 @@ public class SkillCategoryDAO_JDBC implements SkillCategoryDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("載入成功");
+			System.out.println("Load Sucessfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(DELETE_STMT);
 			pstmt.setString(1, SKILL_CATE_NO);
 			pstmt.executeUpdate();
-			System.out.println("刪除成功");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -113,9 +111,9 @@ public class SkillCategoryDAO_JDBC implements SkillCategoryDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("載入成功");
+			System.out.println("Load Sucessfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(UPDATE_STMT);
 
 			pstmt.setString(1, skillCategoryVO.getSkill_cate_name());
@@ -123,7 +121,6 @@ public class SkillCategoryDAO_JDBC implements SkillCategoryDAO_interface{
 			
 			pstmt.executeUpdate();
 			
-			System.out.println("更新成功");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -160,9 +157,9 @@ public class SkillCategoryDAO_JDBC implements SkillCategoryDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("載入成功");
+			System.out.println("Load Sucessfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(GET_ONE_STMT);
 			
 			pstmt.setString(1, SKILL_CATE_NO);
@@ -173,13 +170,11 @@ public class SkillCategoryDAO_JDBC implements SkillCategoryDAO_interface{
 				skillCategoryVO.setSkill_cate_no(rs.getString(1));
 				skillCategoryVO.setSkill_cate_name(rs.getString(2));
 			}
-			System.out.println("主鍵查詢完畢");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("主鍵查詢有問題");
+			System.out.println("嚙瘩嚙踝蕭d嚙賠佗蕭嚙踝蕭嚙瘩");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("主鍵查詢有問題");
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) {
@@ -214,9 +209,9 @@ public class SkillCategoryDAO_JDBC implements SkillCategoryDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			Class.forName(DRIVER);
-			System.out.println("載入成功");
+			System.out.println("Load Sucessfully");
 			con = DriverManager.getConnection(URL, USR, PSW);
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(GET_ALL_STMT);
 			rs = pstmt.executeQuery();
 			
@@ -226,7 +221,6 @@ public class SkillCategoryDAO_JDBC implements SkillCategoryDAO_interface{
 				skillCategoryVO.setSkill_cate_name(rs.getString(2));
 				listSklCatVO.add(skillCategoryVO);
 			}
-			System.out.println("全部查詢完畢");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

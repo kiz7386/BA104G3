@@ -38,7 +38,7 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(INSERT_STMT);
 			
 			pstmt.setString(1, skillVO.getSkill_no());
@@ -46,7 +46,6 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 			pstmt.setString(3, skillVO.getSkill_cate_no());
 			
 			pstmt.executeQuery();
-			System.out.println("新增成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
@@ -77,11 +76,10 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(DELETE_STMT);
 			pstmt.setString(1, SKILL_NO);
 			pstmt.executeUpdate();
-			System.out.println("刪除成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
@@ -114,7 +112,7 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(UPDATE_STMT);
 
 			pstmt.setString(1, skillVO.getSkill_name());
@@ -123,7 +121,6 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 			
 			pstmt.executeUpdate();
 			
-			System.out.println("更新成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
@@ -157,7 +154,7 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(GET_ONE_STMT);
 			
 			pstmt.setString(1, SKILL_NO);
@@ -169,10 +166,8 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 				skillVO.setSkill_name(rs.getString(2));
 				skillVO.setSkill_cate_no(rs.getString(3));
 			}
-			System.out.println("主鍵查詢完畢");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("主鍵查詢有問題");
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) {
@@ -207,7 +202,7 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
+			System.out.println("Connected");
 			pstmt = con.prepareStatement(GET_ALL_STMT);
 			rs = pstmt.executeQuery();
 			
@@ -218,7 +213,6 @@ public class SkillDAO_JNDI implements SkillDAO_interface{
 				skillVO.setSkill_cate_no(rs.getString(3));
 				listSkill.add(skillVO);
 			}
-			System.out.println("全部查詢完畢");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());

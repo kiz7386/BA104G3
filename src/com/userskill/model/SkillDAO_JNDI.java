@@ -38,7 +38,6 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
 			pstmt = con.prepareStatement(INSERT_STMT);
 
 			pstmt.setString(1, skillVO.getMem_no());
@@ -47,11 +46,9 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 			pstmt.setBytes(4, skillVO.getSkill_cert());
 
 			pstmt.executeUpdate();
-			System.out.println("新增成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
-			System.out.println("新增有問題2");
 		} finally {
 			if (pstmt != null) {
 				try {
@@ -79,15 +76,12 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
 			pstmt = con.prepareStatement(DELETE_STMT);
 			pstmt.setString(1, MEM_NO);
 			pstmt.setString(2, SKILL_NO);
 			pstmt.executeUpdate();
-			System.out.println("刪除成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("刪除有問題2");
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) {
@@ -117,7 +111,6 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
 			pstmt = con.prepareStatement(UPDATE_STMT);
 
 			pstmt.setString(1, skillVO.getSkill_detail());
@@ -127,10 +120,8 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 			
 			pstmt.executeUpdate();
 			
-			System.out.println("更新成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("更新有問題");
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) {
@@ -163,7 +154,6 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
 			pstmt = con.prepareStatement(GET_ONE_STMT);
 			
 			pstmt.setString(1, MEM_NO);
@@ -177,10 +167,8 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 				skillVO.setSkill_detail(rs.getString(3));
 				skillVO.setSkill_cert(rs.getBytes(4));
 			}
-			System.out.println("主鍵查詢完畢");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("主鍵查詢有問題");
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) {
@@ -215,7 +203,6 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 		try {
 			System.out.println("---------------------------------------");
 			con = ds.getConnection();
-			System.out.println("連線成功");
 			pstmt = con.prepareStatement(GET_ALL_STMT);
 			rs = pstmt.executeQuery();
 			
@@ -228,10 +215,8 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 				listSkillVO.add(skillVO);
 				System.out.println(rs.getString("MEM_NO"));
 			}
-			System.out.println("全部查詢完畢");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("全查詢有問題2");
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) {
@@ -264,13 +249,13 @@ public class SkillDAO_JNDI implements SkillDAO_Interface{
 		
 		skillInsert.setMem_no("M000003");
 		skillInsert.setSkill_no("SKL000007");
-		skillInsert.setSkill_detail("幽靈馬車");
+		skillInsert.setSkill_detail("嚙踝蕭嚙瘤嚙踝蕭嚙踝蕭");
 		skillInsert.setSkill_cert(null);
 		dao.insert(skillInsert);
 		
 		skillUpdate.setMem_no("M000002");
 		skillUpdate.setSkill_no("SKL000017");
-		skillUpdate.setSkill_detail("double頭");
+		skillUpdate.setSkill_detail("double嚙磐");
 		skillUpdate.setSkill_cert(null);
 		dao.update(skillUpdate);
 		
