@@ -1,5 +1,5 @@
 --DROP指令--
-
+--Test--
 --DROP SEQUENCE--
 --小朱--
 DROP SEQUENCE AD_SEQUENCE;				--廣告		自增主鍵		
